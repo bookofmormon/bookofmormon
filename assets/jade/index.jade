@@ -22,19 +22,30 @@ block container
         select(ng-model='lane', ng-options='lane.id as lane.title for lane in lanes')
         select(ng-model='scope', ng-options='value for value in scopes')
         button.btn.btn-primary(ng-click='add()') Add
-      .items
-        .item(ng-repeat='item in items')
-          span.ref {{ ref(item.start) }} - {{ ref(item.end) }}
-          span.title {{ item.title }}
-          span.desc {{ item.description }}
-          span.lane {{ laneNames[item.name] }}
-          span.scope {{ item.scope }}
-          button.btn.btn-promary(ng-click='edit(item)') Edit
+      table.items.table.table-striped
+        thead
+          tr
+            th Id
+            th Ref
+            th Title
+            th Desc
+            th Lane
+            th Scope
+            th
+        tbody
+          tr.item(ng-repeat='item in items | eq:"lane":lane')
+            td.id {{ item._id }}
+            td.ref {{ ref(item.start) }} - {{ ref(item.end) }}
+            td.title {{ item.title }}
+            td.desc {{ item.description }}
+            td.lane {{ laneNames[item.lane] }}
+            td.scope {{ item.scope }}
+            td: button.btn.btn-promary(ng-click='edit(item)') Edit
     script(id="settings.html", type="text/ng-template")
       .settings-manager(data-settings-manager='familyfound').
         You will see your settings in good time.
 
 append endjs
-  script(src="build.js")
+  script(src="index.js")
   script.
-    var au = require('author');
+    var au = require('bookofmormon');

@@ -1,0 +1,27 @@
+{
+  "name": "bookofmormon",
+  "repo": "bookofmormon/bookofmormon",
+  "description": "Manage stuff",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/dialog": "*",
+    "visionmedia/superagent": "*",
+    "notablemind/angular-settings": "*",
+    "notablemind/settings": "*",
+    "jaredly/angularjs": "*",
+    "btknorr/bootstrap": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "assets/index.js",
+  "scripts": [
+    "assets/angular.js",
+    "assets/pages.js",
+    "assets/settings.js",
+    "assets/index.js"
+  ],
+  "styles": [
+    "assets/styl/index.styl"
+  ]
+}
