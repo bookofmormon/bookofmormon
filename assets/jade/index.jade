@@ -1,0 +1,40 @@
+extends bootstrap
+
+block headtitle
+  title Author
+
+block bodytitle
+  span They are waiting.
+
+block container
+  nav.nav.nav-pills.sub-nav(data-ng-controller='NavController')
+    li(ng-repeat='item in subNav', ng-class='{active: activeItem(item)}')
+      a(href='\#{{item.path}}') {{ item.title }}
+  #pages.row-fluid(ng-view)
+  .templates
+    script(id='author.html', type='text/ng-template')
+      .verse-view(data-verse-view='verseConfig')
+      .new-item
+        .start-verse(ng-click='select("start")') {{ ref(start) }}
+        .end-verse(ng-click='select("end")') {{ ref(end) }}
+        input(ng-model='title', placeholder='Item Title')
+        textarea(ng-model='description', placeholder='description')
+        select(ng-model='lane', ng-options='lane.id as lane.title for lane in lanes')
+        select(ng-model='scope', ng-options='value for value in scopes')
+        button.btn.btn-primary(ng-click='add()') Add
+      .items
+        .item(ng-repeat='item in items')
+          span.ref {{ ref(item.start) }} - {{ ref(item.end) }}
+          span.title {{ item.title }}
+          span.desc {{ item.description }}
+          span.lane {{ laneNames[item.name] }}
+          span.scope {{ item.scope }}
+          button.btn.btn-promary(ng-click='edit(item)') Edit
+    script(id="settings.html", type="text/ng-template")
+      .settings-manager(data-settings-manager='familyfound').
+        You will see your settings in good time.
+
+append endjs
+  script(src="build.js")
+  script.
+    var au = require('author');

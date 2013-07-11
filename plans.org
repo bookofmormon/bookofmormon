@@ -1,0 +1,34 @@
+
+Here are my plans for the "author" app.
+
+Goal:
+
+I want to easily add (and edit?) data entries to the verseline.
+
+A data entry consists of:
+
+- start (verse id)
+- end (verse id)
+- title
+- place?
+- date?
+- description
+
+Do I want a distinction between a "place" item, a "date" item, and
+just a regular item?
+
+- for years, that can easily fit within the present paradigm. just
+  have the description be the year.
+- for places ... same idea. The long description can be the "index" entry.
+
+In order to easily select start and end verse IDs, it would be awesome
+to have a fully navigable scripture interface, including a reference
+lookup.
+
+Things I need:
+
+- listing of available lanes
+- listing? adding / editing? of items
+- scripture display
+
+Ok defs going with angular atm.
